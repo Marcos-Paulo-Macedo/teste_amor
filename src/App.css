@@ -1,0 +1,209 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Changed height to min-height */
+  background-color: #5e1224;
+  background-size: cover;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  position: relative; /* Added for absolute positioning of buttons */
+  padding: 20px; /* Added padding for better spacing on smaller screens */
+  box-sizing: border-box; /* Ensures padding is included in element's total width and height */
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #f1dde4; /* Changed color */
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+img {
+  width: 500px;   /* Exemplo: largura fixa */
+  height: 550px;  /* Exemplo: altura fixa */
+  /* Removemos width: 80% e max-width para priorizar o tamanho fixo */
+  /* min-height: 300px; pode ser removido se a altura fixa for maior */
+  margin-bottom: 30px;
+  background-color: #a1657d;
+  border-radius: 15px;
+  object-fit: cover; /* Essencial para que a imagem preencha o espaço sem distorcer, mas podendo cortar */
+}
+
+.text-center {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #f1dde4; /* Changed color */
+}
+
+p {
+  width: 80%;
+  max-width: 600px; /* Added max-width for responsiveness */
+}
+
+.buttons-adjust {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Changed to 100% to span the container */
+  max-width: 600px; /* Matches image max-width */
+  position: absolute; /* Changed to absolute for precise positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 20px; /* Added padding */
+  box-sizing: border-box;
+}
+
+button {
+  align-items: center;
+  padding: 10px; /* Adjusted padding */
+  font-size: 16px;
+  color: #f1dde4; /* Changed color */
+  background-color: #a1657d; /* Changed color */
+  border-radius: 15px;
+  cursor: pointer;
+  border: none; /* Removed default border */
+  display: flex; /* For aligning icon and text */
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {
+  background-color: #5e1224; /* Darker shade on hover */
+}
+
+
+/*---------------------------------------------------------------------*/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #5e1224; /* Changed color */
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.buttons-proposal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 60px;
+  width: 100%; /* Ensures buttons take full width of their parent */
+}
+
+.button-yes {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f1dde4; /* Changed color */
+  background-color: #a1657d; /* Changed color */
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button-yes:hover {
+  background-color: #5e1224; /* Darker shade on hover */
+}
+
+.button-no {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f1dde4; /* Changed color */
+  background-color: #5e1224; /* Changed color */
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button-no:hover {
+  background-color: #a1657d; /* Lighter shade on hover */
+}
+
+.header-proposal {
+  width: 100%;
+  text-align: center; /* Centraliza o texto */
+  padding: 15px 25px; /* Mais padding para respiro */
+  margin-top: 25px; /* Espaço em relação ao botão de sim */
+  border-radius: 12px; /* Bordas arredondadas */
+  color: #fcfcfc; /* Cor escura do texto */
+  font-size: 1.25rem; /* Tamanho do texto, 20px */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+}
+
+/* Animação de fade-in para a mensagem final */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media query para responsividade da mensagem final */
+@media (max-width: 768px) {
+  .header-proposal {
+    font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
+    padding: 10px 15px;
+  }
+}
+
+/* Adicione também estas animações para os corações e a proposta se não as tiver */
+@keyframes pulse-heart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    80% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pulse-heart {
+    animation: pulse-heart 1.5s infinite ease-in-out;
+}
+
+.animate-pop-in {
+    animation: pop-in 0.6s ease-out forwards;
+}
+
+/* Certifique-se que o `.confetti-container` e `.confetti-heart` estão presentes */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 50; /* Garante que os corações fiquem por cima */
+}
+
+.confetti-heart {
+    position: absolute;
+    animation: fall var(--animationDuration, 4s) linear forwards,
+               fadeInHeart var(--animationDuration, 4s) forwards;
+    font-size: var(--size);
+    will-change: transform, opacity;
+    --rotation: 0deg;
+}
